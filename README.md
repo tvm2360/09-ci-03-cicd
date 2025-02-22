@@ -48,3 +48,30 @@ Code Smells:
 
 ![SonarTest2Result](./pictures/Sonar_web_test2.png)
 
+## Знакомство с Nexus
+
+### Основная часть
+
+![NexusArtifactsLoad](./pictures/Nexus_artifacts_load.png)
+
+[maven-metadata.xml](./load/maven-metadata.xml):
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>netology</groupId>
+  <artifactId>java</artifactId>
+  <versioning>
+    <latest>8_282</latest>
+    <release>8_282</release>
+    <versions>
+      <version>8_102</version>
+      <version>8_282</version>
+    </versions>
+    <lastUpdated>20250222101943</lastUpdated>
+  </versioning>
+</metadata>
+```
+
+## Знакомство с Maven
+
+### Подготовка к выполнению
