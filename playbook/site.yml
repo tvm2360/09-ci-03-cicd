@@ -1,3 +1,4 @@
+
 ---
 - name: Get OpenJDK installed
   hosts: sonarqube
@@ -59,7 +60,7 @@
         state: present
         validate_certs: false
 
-    - name: Change repo failure url and change /tmp/ansible permissions
+    - name: Change repo failure url
       ansible.builtin.shell: |
         export repo_file=/etc/yum.repos.d/CentOS-Base.repo
         cp ${repo_file} ~/CentOS-Base.repo.backup
@@ -68,7 +69,10 @@
         sudo sed -i s/mirror.centos.org/vault.centos.org/ ${repo_file}
         sudo yum clean all
         sudo yum -y update
-        sudo chmod 0777 /tmp/ansible
+
+    - name: Change /tmp/ansible permissions if exists
+      ansible.builtin.shell: |
+        if [ -d /tmp/ansible ] ; then sudo chmod 0777 /tmp/ansible ; fi
 
     - name: Install PostgreSQL
       yum:
@@ -250,10 +254,11 @@
       package:
         name: [java-1.8.0-openjdk, java-1.8.0-openjdk-devel]
         state: present
-    - name: Change /tmp/ansible permissions
+    - name: Change /tmp/ansible permissions if exists
       become: true
       ansible.builtin.shell: |
-        sudo chmod 0777 /tmp/ansible
+        if [ -d /tmp/ansible ] ; then sudo chmod 0777 /tmp/ansible ; fi
+
   tasks:
     - name: Create Nexus directories
       become: true
