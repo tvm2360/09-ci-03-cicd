@@ -75,3 +75,52 @@ Code Smells:
 ## Знакомство с Maven
 
 ### Подготовка к выполнению
+
+``` bash
+mvn --version
+```
+![MavenVersion](./pictures/Maven_Version.png)
+
+[pom.xml](./mvn/pom.xml):
+``` xml
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.netology.app</groupId>
+  <artifactId>simple-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+   <repositories>
+    <repository>
+      <id>my-repo</id>
+      <name>maven-public</name>
+      <url>http://51.250.115.172:8081/repository/maven-public/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>netology</groupId>
+      <artifactId>java</artifactId>
+      <version>8_282</version>
+      <classifier>distrib</classifier>
+      <type>tar.gz</type>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+``` bash
+mvn package
+```
+![MavenPackage](./pictures/Maven_package.png)
+
+``` bash
+ls -la ~/.m2/repository/netology/java/8_282
+```
+![MavenM2Repo](./pictures/Maven_m2_repo.png)
+
+
+
+
+
+
+

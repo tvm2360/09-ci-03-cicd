@@ -3,3 +3,6 @@
 sonar-scanner*
 /sonar-scanner*/
 /sonar-scanner*
+apache-maven*
+/apache-maven*/
+/apache-maven*
